@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!--Inicio del juego-->
+<div id="overlay">
+    <div id="message">
+        <div id="cerrar">
+            <i class="fa fa-close"></i>
+        </div>
+        <div class="contenido">x es el <h2>El ganador</h2></div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="tools">
+        <div class="simbolos">
+            <i class="fa fa-close"></i>
+            <i class="fa fa-circle-o"></i>
+            
+        </div>
+        <div class="tornar">
+            <span class="turno_actual"></span> tornar
+
+        </div>
+        <div class="reiniciar">
+            <div class="boton">
+                <i class="fa fa-rotate-right"></i>
+            </div>
+        </div>
+    </div>
+    <div class="tablero">
+        <div class="celdas">
+            <div class="celda"></div>
+            <div class="celda"></div>
+            <div class="celda"></div>
+        </div>
+        <div class="celdas">
+            <div class="celda"></div>
+            <div class="celda"></div>
+            <div class="celda"></div>
+        </div>
+        <div class="celdas">
+            <div class="celda"></div>
+            <div class="celda"></div>
+            <div class="celda"></div>
+        </div>
+        
+
+    </div>
+    <div class="estadísticas">
+        <div class="jugador">
+            <label>Jugador 1</label>
+            <span class="puntuación1">0</span>
+
+        </div>
+        <div class="empates">
+        <label >empates</label>
+        <span class="empate">0</span>
+    </div>
+
+        <div class="jugador">
+            <label>Jugador 2</label>
+            <span class="puntuación2">0</span>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+<!--Fin del juego-->
+    <script src="juego.js"></script>
+</body>
+</html>
