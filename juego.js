@@ -1,8 +1,10 @@
  const celdas = document.querySelectorAll('.celda');
 const btnreiniciar = document.querySelector('.reiniciar')
 const turnoActual =document.querySelector('.turno_actual');
-const jugador1puntuación1 = document.querySelector('puntuación1');
-const jugador2puntuación2 = document.querySelector('puntuación2');
+const jugador1puntuación = document.querySelector('.puntuación1');
+const jugador2puntuación = document.querySelector('.puntuación2');
+const empates =document.querySelector('.empate');
+const mensajecontenido =document.querySelector('.contenido');
 
 
 
@@ -20,6 +22,8 @@ const combos= [
 
 let turno = true;
 let Celdasusadas =[];
+let ganador = false;
+let emptado = 0;
 
 
 let jugador1 ={
@@ -34,14 +38,6 @@ let jugador2={
 }
 
 comprobaTurno();
-
-
-
-
- 
-
-
-
 for(let i=0;i<9;i++){
     celdas[i].addEventListener('click' , () =>{
         if(isEmpty(i)){
@@ -71,11 +67,22 @@ for(let i=0;i<9;i++){
 
     }
     function checkganador(jugador){
-        combos.some(combo =>{
-            if(combo.every(index => jugador.jugar.includes(index))){ // aqui comprobamos el ganador
-                alert('you won');
-            }
-        })
+        if (!ganador){
+            combos.some(combo =>{
+                if(combo.every(index => jugador.jugar.includes(index))){ // aqui comprobamos el ganador
+                    alert('you won');
+                    jugador.puntuacion++;
+                    mostrarPuntuacion();
+                }
+            })
+
+        }
+        if(!ganador&& Celdasusadas.length == 9){
+            emptado++;
+            mostrarPuntuacion();
+
+        }
+        
     }
     function isEmpty(i){
         if(Celdasusadas.includes(i)){     // aqui preguntamos si las celdas stan ocupadas o vacias
@@ -90,7 +97,7 @@ for(let i=0;i<9;i++){
         })
         Celdasusadas =[];
         jugador1.jugar =[];
-        jugador2.jugador =[];
+        jugador2.jugar =[];
         turno= true;
         comprobaTurno();
     }
@@ -108,6 +115,12 @@ for(let i=0;i<9;i++){
         }else{
             turnoActual.innerHTML =jugador2.simbolo;
         }
+
+    }
+    function mostrarPuntuacion(){
+        jugador1puntuación.innerHTML =jugador1.puntuacion;
+        jugador2puntuación.innerHTML =jugador2.puntuacion;
+        empates.innerHTML=emptado;
 
     }
     
